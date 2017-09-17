@@ -1,0 +1,56 @@
+SQL Queries :
+
+SELECT ( get data from table )
+---------------------------------
+  SELECT <field_list> 
+  FROM <schema>.<table_name> AS <alias>
+  <LEFT|RIGHT|FULL|INNER|OUTTER> JOIN <table_join_name> AS <table_join_alias>
+  WHERE <where clause>
+  GROUP BY <group by clause>
+  ORDER BY <order by clause>
+  LIMIT <limit>
+  OFFSET <offset>
+
+SELECT with SUB-QUERY ( get data from table )
+------------------------------------------------
+  SELECT <field_list>
+  FROM (
+    SELECT <field_list>
+    FROM <schema>.<table_name> AS <alias>
+    WHERE <where clause>
+  ) AS <alias>
+  WHERE <where clause>
+  GROUP BY <group by clause>
+  ORDER BY <order by clause>
+  LIMIT <limit>
+  OFFSET <offset>
+  
+INSERT ( add data to table )
+----------------------------
+  INSERT INTO <schema>.<table_name>
+  (<field_list>) VALUES (<value_list>)
+  
+UPDATE ( change data in table )
+-------------------------------
+  UPDATE <schema>.<table_name>
+  SET <field1> = <value1>,
+    <field2> = <value2>
+    ...
+  WHERE <where clause>
+  
+DELETE ( delete record from a table )
+-------------------------------------
+  DELETE FROM <schema>.<table_name>
+  WHERE <where clause>
+
+POSTGRESQL
+----------
+  SELECT row_number() OVER (ORDER BY <field> <ASC|DESC>) as r,
+  <another field_list>
+  FROM <schema>.<table_name> AS <alias>
+  <LEFT|RIGHT|FULL|INNER|OUTTER> JOIN <table_join_name> AS <table_join_alias>
+  WHERE <where clause>
+  GROUP BY <group by clause>
+  ORDER BY <same order by clause with order by above at OVER>
+  LIMIT <limit>
+  OFFSET <offset>
